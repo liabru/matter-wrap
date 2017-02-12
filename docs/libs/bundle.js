@@ -1,5 +1,5 @@
 /*!
- * matter-wrap 0.1.0 by Liam Brummitt 2017-02-12
+ * matter-wrap 0.1.1 by Liam Brummitt 2017-02-12
  * https://github.com/liabru/matter-wrap
  * License MIT
  */
