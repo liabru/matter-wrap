@@ -26,7 +26,7 @@ It can also be useful to study the implementation of [existing plugins](https://
 
 ## Usage
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository or clone it
+1. [Import](https://help.github.com/articles/importing-a-repository-with-github-importer/) or manually clone this repository
 1. Update `package.json`
 1. Run `npm install && npm run build`
 1. [Implement]((https://github.com/liabru/matter-js/wiki/Creating-plugins)) your [plugin code](index.js)
