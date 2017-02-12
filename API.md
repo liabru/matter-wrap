@@ -2,18 +2,35 @@
 
 <!-- Start index.js -->
 
-## PluginExample
+## MatterWrap
 
-An example plugin for matter.js.
+A coordinate wrapping plugin for matter.js.
+See the readme for usage and examples.
 
-## PluginExample.Body.init(body)
+## MatterWrap.Engine.update(engine)
 
-Example function that removes friction every created body.
-Automatically called by the plugin.
+Updates the engine by wrapping bodies inside `engine.world`.
+This is called automatically by the plugin.
 
 ### Params:
 
-* **Matter.Body** *body* The body to init.
+* **Matter.Engine** *engine* The engine to update.
+
+### Return:
+
+* No return value.
+
+## MatterAttractors.Body.wrap(body, bounds)
+
+Wraps the `body` position such that it always stay within the given bounds. 
+Upon crossing a boundary the body will appear on the opposite side of the bounds, 
+while maintaining its velocity.
+This is called automatically by the plugin.
+
+### Params:
+
+* **Matter.Body** *body* The body to wrap.
+* **Matter.Bounds** *bounds* The bounds to wrap the body inside.
 
 ### Return:
 
@@ -22,6 +39,13 @@ Automatically called by the plugin.
 ## Matter.Body
 
 See: http://brm.io/matter-js/docs/classes/Body.html
+
+This plugin adds a new property `body.plugin.wrap` to instances of `Matter.Body`.  
+This is a `Matter.Bounds` instance that specifies the wrapping region.
+
+### Properties:
+
+* **Matter.Bounds** *body.plugin.wrap* 
 
 <!-- End index.js -->
 

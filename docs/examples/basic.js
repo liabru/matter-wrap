@@ -1,31 +1,32 @@
 // install plugin
 Matter.use(
-  'matter-plugin-boilerplate' // PLUGIN_NAME
+  'matter-wrap' // PLUGIN_NAME
 );
 
 var Example = Example || {};
 
 Example.basic = function() {
+  // module aliases
   var Engine = Matter.Engine,
-    Render = Matter.Render,
-    Runner = Matter.Runner,
-    MouseConstraint = Matter.MouseConstraint,
-    Mouse = Matter.Mouse,
-    World = Matter.World,
-    Bodies = Matter.Bodies;
+      Runner = Matter.Runner,
+      Render = Matter.Render,
+      World = Matter.World,
+      Body = Matter.Body,
+      Mouse = Matter.Mouse,
+      Common = Matter.Common,
+      Bodies = Matter.Bodies;
 
   // create engine
-  var engine = Engine.create(),
-    world = engine.world;
+  var engine = Engine.create();
 
   // create renderer
   var render = Render.create({
     element: document.body,
     engine: engine,
     options: {
-      width: Math.min(document.documentElement.clientWidth, 800),
-      height: Math.min(document.documentElement.clientHeight, 600),
-      showVelocity: true
+      width: Math.min(document.body.clientWidth, 1024),
+      height: Math.min(document.body.clientHeight, 1024),
+      wireframes: false
     }
   });
 
@@ -35,52 +36,57 @@ Example.basic = function() {
   var runner = Runner.create();
   Runner.run(runner, engine);
 
-  // add bodies
-  World.add(world, [
-    // walls
-    Bodies.rectangle(400, 0, 800, 50, { isStatic: true }),
-    Bodies.rectangle(400, 600, 800, 50, { isStatic: true }),
-    Bodies.rectangle(800, 300, 50, 600, { isStatic: true }),
-    Bodies.rectangle(0, 300, 50, 600, { isStatic: true })
-  ]);
+  // create demo scene
+  var world = engine.world;
+  world.gravity.scale = 0;
 
-  World.add(world, [
-    Bodies.rectangle(300, 180, 700, 20, { isStatic: true, angle: Math.PI * 0.06 }),
-    Bodies.rectangle(300, 70, 40, 40)
-  ]);
+  // add some random bodies
+  for (var i = 0; i < 150; i += 1) {
+    var body = Bodies.polygon(
+      Common.random(0, render.options.width), 
+      Common.random(0, render.options.height),
+      Common.random(1, 5),
+      Common.random() > 0.9 ? Common.random(15, 25) : Common.random(5, 10),
+      {
+        friction: 0,
+        frictionAir: 0,
 
-  World.add(world, [
-    Bodies.rectangle(300, 350, 700, 20, { isStatic: true, angle: Math.PI * 0.06 }),
-    Bodies.rectangle(300, 250, 40, 40)
-  ]);
-
-  World.add(world, [
-    Bodies.rectangle(300, 520, 700, 20, { isStatic: true, angle: Math.PI * 0.06 }),
-    Bodies.rectangle(300, 430, 40, 40)
-  ]);
-
-  // add mouse control
-  var mouse = Mouse.create(render.canvas),
-    mouseConstraint = MouseConstraint.create(engine, {
-      mouse: mouse,
-      constraint: {
-        stiffness: 0.2,
-        render: {
-          visible: false
+        // set the body's wrapping bounds
+        plugin: {
+          wrap: {
+            min: {
+              x: 0,
+              y: 0
+            },
+            max: {
+              x: render.canvas.width,
+              y: render.canvas.height
+            }
+          }
         }
       }
+    );
+
+    Body.setVelocity(body, {
+      x: Common.random(-3, 3) + 3, 
+      y: Common.random(-3, 3) + 3
     });
 
-  World.add(world, mouseConstraint);
+    World.add(world, body);
+  }
 
-  // keep the mouse in sync with rendering
-  render.mouse = mouse;
-
-  // fit the render viewport to the scene
-  Render.lookAt(render, {
-    min: { x: 0, y: 0 },
-    max: { x: 800, y: 600 }
+  // add mouse control
+  var mouseConstraint = Matter.MouseConstraint.create(engine, {
+    mouse: Mouse.create(render.canvas),
+    constraint: {
+        stiffness: 0.2,
+        render: {
+            visible: false
+        }
+    }
   });
+
+  World.add(world, mouseConstraint);
 
   // context for MatterTools.Demo
   return {
@@ -93,4 +99,4 @@ Example.basic = function() {
       Matter.Runner.stop(runner);
     }
   };
-};
+}

@@ -1,20 +1,20 @@
 {
-  "name": "matter-plugin-boilerplate",
-  "description": "A plugin boilerplate for matter.js",
-  "version": "0.1.1",
-  "main": "build/matter-plugin-boilerplate.js",
+  "name": "matter-wrap",
+  "description": "A coordinate wrapping plugin for matter.js",
+  "version": "0.1.0",
+  "main": "build/matter-wrap.js",
   "license": "MIT",
-  "homepage": "https://github.com/liabru/matter-plugin-boilerplate",
+  "homepage": "https://github.com/liabru/matter-wrap",
   "author": "Liam Brummitt <liam@brm.io> (http://brm.io/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/liabru/matter-plugin-boilerplate.git"
+    "url": "https://github.com/liabru/matter-wrap.git"
   },
   "keywords": [
     "matter-js",
     "plugin",
     "physics",
-    "boilerplate"
+    "wrapping"
   ],
   "scripts": {
     "build": "webpack",
