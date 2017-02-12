@@ -9,7 +9,7 @@ const Matter = require('matter-js');
 const PluginExample = {
   // plugin meta
   name: 'matter-plugin-boilerplate', // PLUGIN_NAME
-  version: '0.1.0', // PLUGIN_VERSION
+  version: '0.1.1', // PLUGIN_VERSION
   for: 'matter-js@^0.12.0',
 
   // installs the plugin where `base` is `Matter`

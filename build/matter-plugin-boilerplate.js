@@ -1,5 +1,5 @@
 /*!
- * matter-plugin-boilerplate 0.1.0 by Liam Brummitt 2017-02-11
+ * matter-plugin-boilerplate 0.1.1 by Liam Brummitt 2017-02-12
  * https://github.com/liabru/matter-plugin-boilerplate
  * License MIT
  */
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/demo";
+/******/ 	__webpack_require__.p = "/libs";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 1);
@@ -98,9 +98,9 @@ var Matter = __webpack_require__(0);
 
 /**
  * An example plugin for matter.js.
- * @module MatterPluginExample
+ * @module PluginExample
  */
-var MatterPluginExample = {
+var PluginExample = {
   // plugin meta
   name: 'matter-plugin-boilerplate', // PLUGIN_NAME
   version: '0.1.0', // PLUGIN_VERSION
@@ -109,16 +109,19 @@ var MatterPluginExample = {
   // installs the plugin where `base` is `Matter`
   // you should not need to call this directly.
   install: function install(base) {
+    // after Matter.Body.create call our plugin init function
     base.after('Body.create', function () {
-      MatterPluginExample.Body.init(this);
+      PluginExample.Body.init(this);
     });
   },
 
   Body: {
     /**
      * Example function that removes friction every created body.
-     * @function MatterPluginExample.Body.init
-     * @param {Matter.Body} body
+     * Automatically called by the plugin.
+     * @function PluginExample.Body.init
+     * @param {Matter.Body} body The body to init.
+     * @returns {void} No return value.
      */
     init: function init(body) {
       body.friction = 0;
@@ -126,9 +129,14 @@ var MatterPluginExample = {
   }
 };
 
-Matter.Plugin.register(MatterPluginExample);
+Matter.Plugin.register(PluginExample);
 
-module.exports = MatterPluginExample;
+module.exports = PluginExample;
+
+/**
+ * @namespace Matter.Body
+ * @see http://brm.io/matter-js/docs/classes/Body.html
+ */
 
 /***/ })
 /******/ ]);

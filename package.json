@@ -1,7 +1,7 @@
 {
   "name": "matter-plugin-boilerplate",
   "description": "A plugin boilerplate for matter.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "build/matter-plugin-boilerplate.js",
   "license": "MIT",
   "homepage": "https://github.com/liabru/matter-plugin-boilerplate",
