@@ -46,6 +46,8 @@ Leave these intact unless you wish to manually keep them up to date.
 
 The included plugin is a very basic example that just sets the friction of all bodies to `0` after creation.
 
+If you add more source files, you will need to update the `lint`, `doc` and `version` scripts in `package.json`.
+
 ## Commands
 
 All commands are implemented as [npm scripts](https://docs.npmjs.com/misc/scripts):
