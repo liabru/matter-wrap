@@ -3,9 +3,9 @@ Matter.use(
   'matter-plugin-boilerplate' // PLUGIN_NAME
 );
 
-var Examples = Examples || {};
+var Example = Example || {};
 
-Examples.basic = function() {
+Example.basic = function() {
   var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
