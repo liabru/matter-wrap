@@ -2,7 +2,7 @@
 
 > A coordinate wrapping plugin for [matter.js](https://github.com/liabru/matter-js/)
 
-[![Build Status](https://travis-ci.org/liabru/matter-wrap.svg?branch=master)](https://travis-ci.org/liabru/matter-plugin-boilerplate)
+[![Build Status](https://travis-ci.org/liabru/matter-wrap.svg?branch=master)](https://travis-ci.org/liabru/matter-wrap)
 
 This plugin allows you to automatically wrap the position bodies such that 
 they always stay within the given bounds. Upon crossing a boundary the body
