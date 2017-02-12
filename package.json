@@ -1,7 +1,7 @@
 {
   "name": "matter-wrap",
   "description": "A coordinate wrapping plugin for matter.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "build/matter-wrap.js",
   "license": "MIT",
   "homepage": "https://github.com/liabru/matter-wrap",
