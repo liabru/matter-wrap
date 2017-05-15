@@ -10,7 +10,7 @@ const Matter = require('matter-js');
 const MatterWrap = {
   // plugin meta
   name: 'matter-wrap', // PLUGIN_NAME
-  version: '0.1.0', // PLUGIN_VERSION
+  version: '0.1.3', // PLUGIN_VERSION
   for: 'matter-js@^0.12.0',
 
   // installs the plugin where `base` is `Matter`

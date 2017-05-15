@@ -1,15 +1,15 @@
 /*!
- * matter-wrap 0.1.2 by Liam Brummitt 2017-02-12
+ * matter-wrap 0.1.3 by Liam Brummitt 2017-05-15
  * https://github.com/liabru/matter-wrap
  * License MIT
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("Matter"));
+		module.exports = factory(require("matter-js"));
 	else if(typeof define === 'function' && define.amd)
-		define(["Matter"], factory);
+		define(["matter-js"], factory);
 	else if(typeof exports === 'object')
-		exports["MatterWrap"] = factory(require("Matter"));
+		exports["MatterWrap"] = factory(require("matter-js"));
 	else
 		root["MatterWrap"] = factory(root["Matter"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_0__) {
