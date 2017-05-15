@@ -56,13 +56,18 @@ module.exports = {
   },
   output: {
     library: Case.pascal(name),
-    path: './build',
+    path: path.resolve(__dirname, './build'),
     publicPath: '/libs',
     filename: '[name].js',
     libraryTarget: 'umd'
   },
   externals: {
-    'matter-js': 'Matter'
+    'matter-js': {
+      commonjs: 'matter-js',
+      commonjs2: 'matter-js',
+      amd: 'matter-js',
+      root: 'Matter'
+    }
   },
   module: {
     loaders: [{
