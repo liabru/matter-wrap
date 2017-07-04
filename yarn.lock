@@ -2162,9 +2162,9 @@ matter-js@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/matter-js/-/matter-js-0.12.0.tgz#dcb02d04326c47746c63a3772d1475753d72fe1e"
 
-matter-tools@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/matter-tools/-/matter-tools-0.10.0.tgz#832dd8b199999db2306aca4c814c6e641fd4df0a"
+matter-tools@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/matter-tools/-/matter-tools-0.11.1.tgz#758eb37f549a65cbc778e66657fd114584ee00c1"
   dependencies:
     dat.gui "^0.6.1"
     jquery "^3.1.1"
