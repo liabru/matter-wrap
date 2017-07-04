@@ -75,6 +75,30 @@ Example.basic = function() {
     World.add(world, body);
   }
 
+  // add a composite
+  var car = Matter.Composites.car(150, 100, 100, 30, 20);
+
+  // set the composites's wrapping bounds
+  car.plugin.wrap = {
+    min: {
+      x: 0,
+      y: 0
+    },
+    max: {
+      x: render.canvas.width,
+      y: render.canvas.height
+    }
+  };
+
+  for (i = 0; i < car.bodies.length; i += 1) {
+    Body.setVelocity(car.bodies[i], {
+      x: Common.random(-3, 3) + 3, 
+      y: Common.random(-3, 3) + 3
+    });
+  }
+
+  World.add(world, car);
+
   // add mouse control
   var mouseConstraint = Matter.MouseConstraint.create(engine, {
     mouse: Mouse.create(render.canvas),
